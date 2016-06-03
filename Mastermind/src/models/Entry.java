@@ -9,7 +9,7 @@ public class Entry {
 		Scanner scanner = new Scanner(System.in);
 		
 		String input = scanner.next();
-		scanner.close();
+		
 		return input;
 		
 	}
