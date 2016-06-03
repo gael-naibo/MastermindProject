@@ -16,4 +16,10 @@ public class Correction {
 		this.CORRECT_3 = correct_3;
 		this.CORRECT_4 = correct_4;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return CORRECT_1.toString()+ " "+CORRECT_2.toString()+" "+CORRECT_3.toString()+" "+CORRECT_4.toString();
+	}
 }
