@@ -2,11 +2,11 @@ package models;
 
 import java.util.LinkedList;
 
-public class Plateau {
+public class Board {
 	
 	private LinkedList<SimpleLine> simpleline;
 	
-	public Plateau(){
+	public Board(){
 		this.simpleline = new LinkedList<SimpleLine>();
 	}
 	
