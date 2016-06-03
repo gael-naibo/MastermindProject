@@ -15,7 +15,7 @@ public class Displayer {
 			combination = simpleLine.getCombination();
 			correction= simpleLine.getCorrection();
 			
-			System.out.println(combination+" | "+correction);
+			System.out.println(combination +" | "+ correction);
 		}
 		
 		

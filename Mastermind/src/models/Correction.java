@@ -19,7 +19,9 @@ public class Correction {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return CORRECT_1.toString()+ " "+CORRECT_2.toString()+" "+CORRECT_3.toString()+" "+CORRECT_4.toString();
+		return ((CORRECT_1 == null) ? " " : CORRECT_1.toString()) + " " +
+			   ((CORRECT_2 == null) ? " " : CORRECT_2.toString()) + " " +
+			   ((CORRECT_3 == null) ? " " : CORRECT_3.toString()) + " " +
+			   ((CORRECT_4 == null) ? " " : CORRECT_4.toString());
 	}
 }

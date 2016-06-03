@@ -62,7 +62,6 @@ public class Combination {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return pawn1.getCOLOR().toString()+" " + pawn2.getCOLOR().toString() + " "+ pawn3.getCOLOR().toString()+ " "+pawn4.getCOLOR().toString();
 		
 	}
