@@ -10,8 +10,8 @@ public class Board {
 		return lines;
 	}
 
-	public void setSimpleline(LinkedList<SimpleLine> simpleline) {
-		this.lines = simpleline;
+	public void setSimpleline(LinkedList<SimpleLine> lines) {
+		this.lines = lines;
 	}
 
 	public Board(){

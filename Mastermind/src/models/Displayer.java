@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Displayer {
 	
-	private void display(Board board){
+	public void display(Board board){
 		
 		Combination combination;
 		Correction correction;
@@ -17,11 +17,10 @@ public class Displayer {
 			
 			System.out.println(combination +" | "+ correction);
 		}
-		
-		
-		
-		
-		
+	}
+	
+	public void display(String content){
+		System.out.println(content);
 	}
 	
 }
