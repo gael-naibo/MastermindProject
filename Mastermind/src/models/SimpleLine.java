@@ -13,6 +13,22 @@ public class SimpleLine {
 		this.combination = combination;
 		this.correction = correction;
 	}
+
+	public Combination getCombination() {
+		return combination;
+	}
+
+	public void setCombination(Combination combination) {
+		this.combination = combination;
+	}
+
+	public Correction getCorrection() {
+		return correction;
+	}
+
+	public void setCorrection(Correction correction) {
+		this.correction = correction;
+	}
 }
 
 
