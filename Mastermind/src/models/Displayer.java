@@ -6,7 +6,11 @@ public class Displayer {
 	
 	private void display(Board board){
 		
-	SimpleLine line1=board.getSimpleline();
+		LinkedList<SimpleLine> liste = board.getSimpleline();
+		
+		for (SimpleLine simpleLine : liste) {
+			Combination combination = simpleLine.getCombination();
+		}
 		
 	}
 	
