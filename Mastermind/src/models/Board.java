@@ -4,21 +4,21 @@ import java.util.LinkedList;
 
 public class Board {
 	
-	private LinkedList<SimpleLine> simpleline;
+	private LinkedList<SimpleLine> lines;
 	
 	public LinkedList<SimpleLine> getSimpleline() {
-		return simpleline;
+		return lines;
 	}
 
 	public void setSimpleline(LinkedList<SimpleLine> simpleline) {
-		this.simpleline = simpleline;
+		this.lines = simpleline;
 	}
 
 	public Board(){
-		this.simpleline = new LinkedList<SimpleLine>();
+		this.lines = new LinkedList<SimpleLine>();
 	}
 	
 	public void addLine(SimpleLine line){
-		this.simpleline.add(line);
+		this.lines.add(line);
 	}
 }
