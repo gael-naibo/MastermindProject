@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 public class Game {
 	
 	private Entry entry;
@@ -20,22 +22,30 @@ public class Game {
 		
 		while(!success){
 			turnPlayer2(board);
-			success=checkPawns(board,combinationToGuess);
+			List<CombinationStatus> status = checkPawns(board,combinationToGuess);
+			success = true;
+			for (CombinationStatus cs : status) {
+				if (!cs.equals(CombinationStatus.GOOD)) {
+					success = false;
+					break;
+				}
+			}
+			
 			if(!success){
-				displayer.display("WRONG COMBINATION ! TRY AGAIN !");
+				displayer.display(	"WRONG COMBINATION ! " +
+									status.get(0).toString() + " | " +
+									status.get(1).toString() + " | " +
+									status.get(2).toString() + " | " +
+									status.get(3).toString()
+				);
 			}
 		}
-		displayer.display("Your skills are approved by MasterMind !");
 		
-				
+		displayer.display("Your skills are approved by MasterMind !");		
 	}
 
-	private boolean checkPawns(Board board, Combination combinationToGuess) {
-		// TODO Auto-generated method stub
-		
-	return Combination.CompareCombinations(board.getSimpleline().getLast().getCombination(), combinationToGuess);
-		
-		
+	private List<CombinationStatus> checkPawns(Board board, Combination combinationToGuess) {
+		return combinationToGuess.compute(board.getSimpleline().getLast().getCombination());
 	}
 
 	private void initPlayer1(Displayer displayer, Combination combinationToGuess) {

@@ -1,5 +1,8 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Combination {
 
 	private Pawn pawn1;
@@ -50,16 +53,39 @@ public class Combination {
 		this.pawn4= pawn4;
 	}
 	
-	public static boolean CompareCombinations(Combination comb1, Combination comb2){
-		if(comb1.getPawn1().getCOLOR().equals(comb2.getPawn1().getCOLOR()) &&
-			comb1.getPawn2().getCOLOR().equals(comb2.getPawn2().getCOLOR())	&&
-			comb1.getPawn3().getCOLOR().equals(comb2.getPawn3().getCOLOR()) &&
-			comb1.getPawn4().getCOLOR().equals(comb2.getPawn4().getCOLOR())){
-			return true;
-		}
-		return false;
+	public List<CombinationStatus> compute(Combination tried){
+		List<CombinationStatus> status = new ArrayList<>(4);
+		
+		status.add(comparePawnWithSolution(tried.getPawn1(), this.getPawn1()));
+		status.add(comparePawnWithSolution(tried.getPawn2(), this.getPawn2()));
+		status.add(comparePawnWithSolution(tried.getPawn3(), this.getPawn3()));
+		status.add(comparePawnWithSolution(tried.getPawn4(), this.getPawn4()));
+		
+		return status;
 	}
 	
+	private CombinationStatus comparePawnWithSolution(Pawn pawn, Pawn solution) {
+		CombinationStatus status = CombinationStatus.WRONG;
+		if (pawn.getCOLOR().equals(solution.getCOLOR()))
+			status = CombinationStatus.GOOD;
+		else if (contains(pawn))
+			status = CombinationStatus.NOT_HERE;
+		
+		return status;
+	}
+
+	private boolean contains(Pawn pawn) {
+		if (	pawn.getCOLOR().equals(pawn1.getCOLOR())
+			||	pawn.getCOLOR().equals(pawn2.getCOLOR())
+			||	pawn.getCOLOR().equals(pawn3.getCOLOR())
+			||	pawn.getCOLOR().equals(pawn4.getCOLOR()))
+			
+			return true;
+		
+		return false;
+		
+	}
+
 	@Override
 	public String toString() {
 		return pawn1.getCOLOR().toString()+" " + pawn2.getCOLOR().toString() + " "+ pawn3.getCOLOR().toString()+ " "+pawn4.getCOLOR().toString();

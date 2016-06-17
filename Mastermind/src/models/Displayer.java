@@ -22,5 +22,4 @@ public class Displayer {
 	public void display(String content){
 		System.out.println(content);
 	}
-	
 }
